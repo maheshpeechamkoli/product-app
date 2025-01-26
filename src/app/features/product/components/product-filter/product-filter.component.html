@@ -1,0 +1,14 @@
+<div class="filter-container">
+  <label for="categoryFilter" class="form-label">Filter by Category:</label>
+  <select
+    id="categoryFilter"
+    class="form-select"
+    #categoryFilter
+    (change)="onCategoryChange(categoryFilter.value)"
+  >
+    <option value="">All Categories</option>
+    <option *ngFor="let category of categories" [value]="category.slug">
+      {{ category.name }}
+    </option>
+  </select>
+</div>
