@@ -1,0 +1,42 @@
+<div class="product-container">
+  <div class="mb-3">
+    <label for="categoryFilter" class="form-label">Filter by Category:</label>
+    <select
+      id="categoryFilter"
+      class="form-select"
+      #categoryFilter
+      (change)="onCategoryChange(categoryFilter.value)"
+    >
+      <option value="">All Categories</option>
+      <option *ngFor="let category of categories" [value]="category">
+        {{ category }}
+      </option>
+    </select>
+  </div>
+
+  <div class="product-container-inner">
+    <div class="product-grid">
+      <!-- Header Row -->
+      <div class="grid-row header">
+        <div class="grid-col">Thumbnail</div>
+        <div class="grid-col">Title</div>
+        <div class="grid-col">Price</div>
+        <div class="grid-col">Rating</div>
+      </div>
+
+      <!-- Data Rows -->
+      <div *ngFor="let product of products" class="grid-row">
+        <div class="grid-col">
+          <img
+            [src]="product.thumbnail"
+            [alt]="product.title"
+            class="card-img-top"
+          />
+        </div>
+        <div class="grid-col">{{ product.title }}</div>
+        <div class="grid-col">{{ product.price | currency }}</div>
+        <div class="grid-col">{{ product.rating }}</div>
+      </div>
+    </div>
+  </div>
+</div>
