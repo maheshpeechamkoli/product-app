@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Product } from '../models/product.model';
 import { environment } from '../../../../environments/environment';
 import { ProductResponse } from '../models/product-response.model';
+import { Category } from '../models/category.model';
 
 @Injectable()
 export class ProductService {
@@ -23,8 +24,8 @@ export class ProductService {
   }
 
   // Fetch product categories
-  getCategories(): Observable<string[]> {
-    return this.http.get<string[]>(`${this.apiUrl}/products/category-list`);
+  getCategories(): Observable<Category[]> {
+    return this.http.get<Category[]>(`${this.apiUrl}/products/categories`);
   }
 
   // Fetch products by category
