@@ -7,6 +7,7 @@ import { ScrollNearEndDirective } from '../../../../shared/directives/scroll-nea
 import { finalize } from 'rxjs';
 import { StarRatingPipe } from '../../../../shared/pipe/star-rating-pipe';
 import { ProductResponse } from '../../models/product-response.model';
+import { ProductCardComponent } from '../product-card/product-card.component';
 
 @Component({
   selector: 'app-product-list',
@@ -15,6 +16,7 @@ import { ProductResponse } from '../../models/product-response.model';
     ProductFilterComponent,
     ScrollNearEndDirective,
     StarRatingPipe,
+    ProductCardComponent,
   ],
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss'],
@@ -22,8 +24,9 @@ import { ProductResponse } from '../../models/product-response.model';
 })
 export class ProductListComponent implements OnInit {
   products: Product[] = [];
-  totalProducts: number | undefined;
 
+  totalProducts: number | undefined;
+  selectedProduct: Product | undefined = undefined;
   selectedCategory = '';
   currentPage = 1;
   itemsPerPage = 20;
@@ -55,6 +58,14 @@ export class ProductListComponent implements OnInit {
         console.error('Failed to fetch products:', err);
       },
     });
+  }
+
+  showOverlay(product: Product) {
+    this.selectedProduct = product;
+  }
+
+  hideOverlay() {
+    this.selectedProduct = undefined;
   }
 
   /**
