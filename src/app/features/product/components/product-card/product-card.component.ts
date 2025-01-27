@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Product } from '../../../product/models/product.model';
+import { Product } from '../../models/product.model';
 import { CommonModule } from '@angular/common';
 import { StarRatingPipe } from '../../../../shared/pipe/star-rating-pipe';
 import { FavoriteService } from '../../services/favorite.service';

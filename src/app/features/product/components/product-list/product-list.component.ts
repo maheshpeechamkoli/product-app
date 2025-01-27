@@ -6,8 +6,8 @@ import { ProductFilterComponent } from '../product-filter/product-filter.compone
 import { ScrollNearEndDirective } from '../../../../shared/directives/scroll-near-end.directive';
 import { finalize } from 'rxjs';
 import { ProductResponse } from '../../models/product-response.model';
-import { ProductCardComponent } from '../../../shared/components/product-card/product-card.component';
-import { ProductThumbnailComponent } from '../../../shared/components/product-thumbnail/product-thumbnail.component';
+import { ProductCardComponent } from '../product-card/product-card.component';
+import { ProductThumbnailComponent } from '../product-thumbnail/product-thumbnail.component';
 
 @Component({
   selector: 'app-product-list',

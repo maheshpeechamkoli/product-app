@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { StorageService } from '../../../shared/services/storage.service';
-import { Product } from '../../product/models/product.model';
+import { Product } from '../models/product.model';
 
 @Injectable()
 export class FavoriteService {

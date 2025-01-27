@@ -16,7 +16,7 @@
   img {
     width: 100%;
     height: 200px;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 12px;
   }
 
@@ -34,7 +34,8 @@
 }
 
 .product-info {
-  min-height: 130px;
+  width: clamp(200px, 20vw, 250px);
+  height: clamp(100px, 15vw, 130px);
   h3 {
     margin: 0 0 0.5rem;
     font-size: 1.25rem;

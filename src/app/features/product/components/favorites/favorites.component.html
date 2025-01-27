@@ -1,0 +1,21 @@
+<div class="fav-list-container">
+  <div class="fav-grid">
+    <ng-container *ngIf="!selectedProduct">
+      <div *ngIf="products.length === 0" class="no-data-message">
+        <p>No favorite products available.</p>
+      </div>
+
+      <app-product-thumbnail
+        *ngFor="let product of products"
+        [product]="product"
+        (cardClick)="showOverlay(product)"
+      ></app-product-thumbnail>
+    </ng-container>
+
+    <app-product-card
+      *ngIf="selectedProduct"
+      [product]="selectedProduct"
+      (closeOverlay)="hideOverlay()"
+    ></app-product-card>
+  </div>
+</div>

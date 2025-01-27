@@ -47,6 +47,7 @@
         class="favorite-btn"
         [class.active]="isFavorite"
         (click)="toggleFavorite()"
+        (keyup.enter)="toggleFavorite()"
       >
         <i class="fas fa-heart" aria-hidden="true"></i>
       </button>
