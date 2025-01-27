@@ -8,5 +8,7 @@ export interface Product {
   rating: number;
   stock: number;
   discountPercentage: number;
+  brand: string;
+  returnPolicy: string;
   images: string[];
 }

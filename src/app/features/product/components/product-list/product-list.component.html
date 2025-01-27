@@ -1,35 +1,48 @@
 <div class="product-list-container">
-  <div class="product-list-header">
-    <h2>Product List ({{ totalProducts }})</h2>
-    <div class="filter-by">
-      <app-product-filter
-        (categoryChange)="onCategoryChange($event)"
-      ></app-product-filter>
-    </div>
-  </div>
-
-  <div class="product-grid" appScrollNearEnd (nearEnd)="loadMoreProducts()">
-    <div *ngFor="let product of products" class="product-card">
-      <div class="product-image">
-        <img
-          [src]="product.thumbnail"
-          [alt]="product.title"
-          class="card-img-top"
-        />
-        <div class="discount" *ngIf="product.discountPercentage">
-          -{{ product.discountPercentage }}%
-        </div>
-      </div>
-
-      <div class="product-info">
-        <h3>{{ product.title }}</h3>
-        <div class="rating">
-          <span *ngFor="let star of product.rating | starRating"
-            >{{ star }}</span
-          >
-        </div>
-        <p>{{ product.price | currency }}</p>
+  <ng-container *ngIf="!selectedProduct">
+    <div class="product-list-header">
+      <h2>Product List ({{ totalProducts }})</h2>
+      <div class="filter-by">
+        <app-product-filter
+          (categoryChange)="onCategoryChange($event)"
+        ></app-product-filter>
       </div>
     </div>
-  </div>
+
+    <div class="product-grid" appScrollNearEnd (nearEnd)="loadMoreProducts()">
+      <div
+        *ngFor="let product of products"
+        class="product-card"
+        (click)="showOverlay(product)"
+        tabindex="0"
+        (keyup.enter)="showOverlay(product)"
+      >
+        <div class="product-image">
+          <img
+            [src]="product.thumbnail"
+            [alt]="product.title"
+            class="card-img-top"
+          />
+          <div class="discount" *ngIf="product.discountPercentage">
+            -{{ product.discountPercentage }}%
+          </div>
+        </div>
+
+        <div class="product-info">
+          <h3>{{ product.title }}</h3>
+          <div class="rating">
+            <span *ngFor="let star of product.rating | starRating"
+              >{{ star }}</span
+            >
+          </div>
+          <p>{{ product.price | currency }}</p>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <app-product-card
+    *ngIf="selectedProduct"
+    [product]="selectedProduct"
+    (closeOverlay)="hideOverlay()"
+  ></app-product-card>
 </div>

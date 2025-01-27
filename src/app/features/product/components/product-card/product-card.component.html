@@ -1,1 +1,64 @@
-<p>product-card works!</p>
+<div class="card-container">
+  <div class="back-navigation">
+    <button class="back-button" (click)="close()">
+      <i class="fa-solid fa-circle-chevron-left"></i>
+      <span>Back to Products</span>
+    </button>
+  </div>
+
+  <div class="product-container">
+    <div class="image-gallery">
+      <div class="thumbnail-list">
+        <div
+          class="thumbnail"
+          *ngFor="let img of product.images"
+          [class.active]="selectedImage === img"
+          (click)="selectedImage = img"
+          (keyup.enter)="selectedImage = img"
+          tabindex="0"
+        >
+          <img [src]="img" alt="Product thumbnail" />
+        </div>
+      </div>
+      <div class="main-image">
+        <img [src]="selectedImage" alt="Main product image" />
+      </div>
+    </div>
+
+    <div class="product-info">
+      <h1 class="product-title">{{product.title}}</h1>
+      <p class="product-brand">{{product.brand}}</p>
+      <p class="product-subtitle">{{product.description}}</p>
+
+      <div class="price">
+        <span>${{product.price}}</span>
+      </div>
+
+      <div class="rating">
+        <span *ngFor="let star of product.rating | starRating">{{ star }}</span>
+      </div>
+
+      <div class="promo-message">
+        <i class="fas fa-tag"></i>
+        {{product.returnPolicy}}
+      </div>
+
+      <button
+        class="favorite-btn"
+        [class.active]="isFavorite"
+        (click)="toggleFavorite()"
+      >
+        <i class="fas fa-heart" aria-hidden="true"></i>
+      </button>
+
+      <div
+        class="purchase-more"
+        (click)="close()"
+        (keyup.enter)="close()"
+        tabindex="0"
+      >
+        Purchase more? Check our products
+      </div>
+    </div>
+  </div>
+</div>
