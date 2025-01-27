@@ -5,9 +5,9 @@ import { ProductService } from '../../services/product.service';
 import { ProductFilterComponent } from '../product-filter/product-filter.component';
 import { ScrollNearEndDirective } from '../../../../shared/directives/scroll-near-end.directive';
 import { finalize } from 'rxjs';
-import { StarRatingPipe } from '../../../../shared/pipe/star-rating-pipe';
 import { ProductResponse } from '../../models/product-response.model';
-import { ProductCardComponent } from '../product-card/product-card.component';
+import { ProductCardComponent } from '../../../shared/components/product-card/product-card.component';
+import { ProductThumbnailComponent } from '../../../shared/components/product-thumbnail/product-thumbnail.component';
 
 @Component({
   selector: 'app-product-list',
@@ -15,8 +15,8 @@ import { ProductCardComponent } from '../product-card/product-card.component';
     CommonModule,
     ProductFilterComponent,
     ScrollNearEndDirective,
-    StarRatingPipe,
     ProductCardComponent,
+    ProductThumbnailComponent,
   ],
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss'],
