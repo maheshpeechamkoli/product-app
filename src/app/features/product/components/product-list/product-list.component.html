@@ -1,29 +1,35 @@
-<div class="product-container">
-  <app-product-filter
-    (categoryChange)="onCategoryChange($event)"
-  ></app-product-filter>
+<div class="product-list-container">
+  <div class="product-list-header">
+    <h2>Product List ({{ totalProducts }})</h2>
+    <div class="filter-by">
+      <app-product-filter
+        (categoryChange)="onCategoryChange($event)"
+      ></app-product-filter>
+    </div>
+  </div>
 
   <div class="product-grid" appScrollNearEnd (nearEnd)="loadMoreProducts()">
-    <!-- Header Row -->
-    <div class="grid-row header">
-      <div class="grid-col">Product</div>
-      <div class="grid-col">Title</div>
-      <div class="grid-col">Price</div>
-      <div class="grid-col">Rating</div>
-    </div>
-
-    <!-- Data Rows -->
-    <div *ngFor="let product of products" class="grid-row">
-      <div class="grid-col">
+    <div *ngFor="let product of products" class="product-card">
+      <div class="product-image">
         <img
           [src]="product.thumbnail"
           [alt]="product.title"
           class="card-img-top"
         />
+        <div class="discount" *ngIf="product.discountPercentage">
+          -{{ product.discountPercentage }}%
+        </div>
       </div>
-      <div class="grid-col">{{ product.title }}</div>
-      <div class="grid-col">{{ product.price | currency }}</div>
-      <div class="grid-col">{{ product.rating }}</div>
+
+      <div class="product-info">
+        <h3>{{ product.title }}</h3>
+        <div class="rating">
+          <span *ngFor="let star of product.rating | starRating"
+            >{{ star }}</span
+          >
+        </div>
+        <p>{{ product.price | currency }}</p>
+      </div>
     </div>
   </div>
 </div>

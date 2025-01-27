@@ -5,18 +5,26 @@ import { ProductService } from '../../services/product.service';
 import { ProductFilterComponent } from '../product-filter/product-filter.component';
 import { ScrollNearEndDirective } from '../../../../shared/directives/scroll-near-end.directive';
 import { finalize } from 'rxjs';
+import { StarRatingPipe } from '../../../../shared/pipe/star-rating-pipe';
+import { ProductResponse } from '../../models/product-response.model';
 
 @Component({
   selector: 'app-product-list',
-  imports: [CommonModule, ProductFilterComponent, ScrollNearEndDirective],
+  imports: [
+    CommonModule,
+    ProductFilterComponent,
+    ScrollNearEndDirective,
+    StarRatingPipe,
+  ],
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss'],
   providers: [ProductService],
 })
 export class ProductListComponent implements OnInit {
   products: Product[] = [];
-  selectedCategory = '';
+  totalProducts: number | undefined;
 
+  selectedCategory = '';
   currentPage = 1;
   itemsPerPage = 20;
   isLastPage = false;
@@ -76,7 +84,8 @@ export class ProductListComponent implements OnInit {
    * Handles the fetched products and updates the product list.
    * @param data The fetched product data.
    */
-  private handleFetchedProducts(data: { products: Product[] }): void {
+  private handleFetchedProducts(data: ProductResponse<Product>): void {
+    this.totalProducts = data.total;
     this.products = this.selectedCategory
       ? data.products
       : [...this.products, ...data.products];
