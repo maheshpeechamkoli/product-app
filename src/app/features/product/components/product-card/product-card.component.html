@@ -38,6 +38,13 @@
         <span *ngFor="let star of product.rating | starRating">{{ star }}</span>
       </div>
 
+      <div class="stock">
+        <span *ngIf="product.stock === 0">Out of Stock</span>
+        <span *ngIf="product.stock > 0"
+          >In Stock ({{ product.stock }} available)</span
+        >
+      </div>
+
       <div class="promo-message">
         <i class="fas fa-tag"></i>
         {{product.returnPolicy}}
@@ -50,6 +57,7 @@
         (keyup.enter)="toggleFavorite()"
       >
         <i class="fas fa-heart" aria-hidden="true"></i>
+        Add to Favorites
       </button>
 
       <div
