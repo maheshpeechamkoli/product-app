@@ -1,0 +1,26 @@
+<div
+  class="product-card"
+  (click)="onCardClick()"
+  tabindex="0"
+  (keyup.enter)="onCardClick()"
+>
+  <div class="product-image">
+    <img
+      [src]="product.thumbnail"
+      loading="lazy"
+      [alt]="product.title"
+      class="card-img-top"
+    />
+    <div class="discount" *ngIf="product.discountPercentage">
+      -{{ product.discountPercentage }}%
+    </div>
+  </div>
+
+  <div class="product-info">
+    <h3>{{ product.title }}</h3>
+    <div class="rating">
+      <span *ngFor="let star of product.rating | starRating">{{ star }}</span>
+    </div>
+    <p>{{ product.price | currency }}</p>
+  </div>
+</div>
