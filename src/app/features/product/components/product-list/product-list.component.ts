@@ -39,6 +39,10 @@ export class ProductListComponent implements OnInit {
     this.fetchProducts();
   }
 
+  trackByProductId(index: number, product: Product): number {
+    return product.id;
+  }
+
   /**
    * Fetches products from the server.
    */

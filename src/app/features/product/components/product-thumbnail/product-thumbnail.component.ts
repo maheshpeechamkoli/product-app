@@ -1,4 +1,10 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 import { Product } from '../../../product/models/product.model';
 import { StarRatingPipe } from '../../../../shared/pipe/star-rating-pipe';
 import { CommonModule } from '@angular/common';
@@ -8,6 +14,7 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule, StarRatingPipe],
   templateUrl: './product-thumbnail.component.html',
   styleUrls: ['./product-thumbnail.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductThumbnailComponent {
   @Input() product!: Product;

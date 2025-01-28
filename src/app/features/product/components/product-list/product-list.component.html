@@ -10,7 +10,7 @@
     </div>
     <div class="product-grid" appScrollNearEnd (nearEnd)="loadMoreProducts()">
       <app-product-thumbnail
-        *ngFor="let product of products"
+        *ngFor="let product of products; trackBy: trackByProductId"
         [product]="product"
         (cardClick)="showOverlay(product)"
       ></app-product-thumbnail>
