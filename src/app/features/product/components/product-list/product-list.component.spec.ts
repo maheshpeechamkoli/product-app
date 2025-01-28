@@ -12,7 +12,6 @@ import {
   withInterceptorsFromDi,
 } from '@angular/common/http';
 
-// Define the ProductResponse interface
 interface ProductResponse<T> {
   products: T[];
   total: number;
@@ -24,7 +23,6 @@ describe('ProductListComponent', () => {
   let component: ProductListComponent;
   let fixture: ComponentFixture<ProductListComponent>;
   let productService: jasmine.SpyObj<ProductService>;
-
   const mockProducts: Product[] = [
     {
       id: 1,
@@ -32,12 +30,15 @@ describe('ProductListComponent', () => {
       price: 100,
       description: 'Description of Product 1',
       category: 'Category A',
-      thumbnail: 'https://example.com/thumbnail1.jpg',
+      thumbnail:
+        'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
       rating: 4.5,
       stock: 10,
+      discountPercentage: 10,
+      brand: 'Brand A',
+      returnPolicy: '30 days return',
       images: [
-        'https://example.com/image1.jpg',
-        'https://example.com/image2.jpg',
+        'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
       ],
     },
     {
@@ -46,12 +47,15 @@ describe('ProductListComponent', () => {
       price: 200,
       description: 'Description of Product 2',
       category: 'Category B',
-      thumbnail: 'https://example.com/thumbnail2.jpg',
+      thumbnail:
+        'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA8',
       rating: 3.8,
       stock: 5,
+      discountPercentage: 15,
+      brand: 'Brand B',
+      returnPolicy: '14 days return',
       images: [
-        'https://example.com/image3.jpg',
-        'https://example.com/image4.jpg',
+        'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA9',
       ],
     },
   ];
@@ -76,14 +80,14 @@ describe('ProductListComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         CommonModule,
-        ProductListComponent, // Import the standalone component here
+        ProductListComponent,
         ProductFilterComponent,
         ScrollNearEndDirective,
       ],
       providers: [
         { provide: ProductService, useValue: productService },
-        provideHttpClient(withInterceptorsFromDi()), // Provide HttpClient
-        provideHttpClientTesting(), // Provide HttpClientTesting
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting(),
       ],
     });
 
@@ -110,7 +114,6 @@ describe('ProductListComponent', () => {
   it('should not fetch more products if isLastPage or isLoading is true', () => {
     spyOn(component, 'fetchProducts');
 
-    // Setting the conditions where products should not be fetched
     component.isLastPage = true;
     component.loadMoreProducts();
     expect(component.fetchProducts).not.toHaveBeenCalled();
@@ -148,7 +151,7 @@ describe('ProductListComponent', () => {
   it('should not call loadMoreProducts if a category is selected', () => {
     component.isLastPage = false;
     component.isLoading = false;
-    component.selectedCategory = 'Electronics'; // Category selected
+    component.selectedCategory = 'Electronics';
 
     spyOn(component, 'fetchProducts');
 
