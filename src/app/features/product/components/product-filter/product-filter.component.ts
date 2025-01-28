@@ -1,5 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { ProductService } from '../../services/product.service';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Category } from '../../models/category.model';
 
@@ -9,24 +8,12 @@ import { Category } from '../../models/category.model';
   templateUrl: './product-filter.component.html',
   styleUrl: './product-filter.component.scss',
 })
-export class ProductFilterComponent implements OnInit {
+export class ProductFilterComponent {
   @Output() categoryChange = new EventEmitter<string>();
-
-  categories: Category[] = [];
-
-  constructor(private productService: ProductService) {}
-
-  ngOnInit(): void {
-    this.fetchCategories();
-  }
+  @Input() categories: Category[] = [];
+  @Input() selectedCategory = '';
 
   onCategoryChange(category: string): void {
     this.categoryChange.emit(category);
-  }
-
-  fetchCategories(): void {
-    this.productService.getCategories().subscribe((data) => {
-      this.categories = data;
-    });
   }
 }
