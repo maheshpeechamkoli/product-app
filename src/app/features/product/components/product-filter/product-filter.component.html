@@ -7,7 +7,11 @@
     (change)="onCategoryChange(categoryFilter.value)"
   >
     <option value="">All Categories</option>
-    <option *ngFor="let category of categories" [value]="category.slug">
+    <option
+      *ngFor="let category of categories"
+      [value]="category.slug"
+      [selected]="category.slug === selectedCategory"
+    >
       {{ category.name }}
     </option>
   </select>

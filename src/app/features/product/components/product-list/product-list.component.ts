@@ -8,6 +8,7 @@ import { finalize } from 'rxjs';
 import { ProductResponse } from '../../models/product-response.model';
 import { ProductCardComponent } from '../product-card/product-card.component';
 import { ProductThumbnailComponent } from '../product-thumbnail/product-thumbnail.component';
+import { Category } from '../../models/category.model';
 
 @Component({
   selector: 'app-product-list',
@@ -24,6 +25,7 @@ import { ProductThumbnailComponent } from '../product-thumbnail/product-thumbnai
 })
 export class ProductListComponent implements OnInit {
   products: Product[] = [];
+  categories: Category[] = [];
 
   totalProducts: number | undefined;
   selectedProduct: Product | undefined = undefined;
@@ -37,10 +39,17 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit(): void {
     this.fetchProducts();
+    this.fetchCategories();
   }
 
   trackByProductId(index: number, product: Product): number {
     return product.id;
+  }
+
+  fetchCategories(): void {
+    this.productService.getCategories().subscribe((data) => {
+      this.categories = data;
+    });
   }
 
   /**
