@@ -9,6 +9,7 @@ import { ProductResponse } from '../../models/product-response.model';
 import { ProductCardComponent } from '../product-card/product-card.component';
 import { ProductThumbnailComponent } from '../product-thumbnail/product-thumbnail.component';
 import { Category } from '../../models/category.model';
+import { APP_CONFIG } from '../../../../shared/constants/app.constants';
 
 @Component({
   selector: 'app-product-list',
@@ -24,15 +25,23 @@ import { Category } from '../../models/category.model';
   providers: [ProductService],
 })
 export class ProductListComponent implements OnInit {
+  // List of products and categories.
   products: Product[] = [];
+  // List of categories.
   categories: Category[] = [];
-
+  // Total number of products.
   totalProducts: number | undefined;
+  // Selected product for overlay.
   selectedProduct: Product | undefined = undefined;
+  // Selected category.
   selectedCategory = '';
+  // Pagination properties.
   currentPage = 1;
-  itemsPerPage = 20;
+  // Number of items per page.
+  itemsPerPage = APP_CONFIG.ITEMS_PER_PAGE;
+  // Flag to indicate if the last page has been reached.
   isLastPage = false;
+  // Flag to indicate if products are being loaded.
   isLoading = false;
 
   constructor(private productService: ProductService) {}
@@ -42,10 +51,19 @@ export class ProductListComponent implements OnInit {
     this.fetchCategories();
   }
 
+  /**
+   * Track by function for product list.
+   * @param index The index of the product.
+   * @param product The product object.
+   * @returns The product id.
+   */
   trackByProductId(index: number, product: Product): number {
     return product.id;
   }
 
+  /**
+   * Fetches categories from the server.
+   */
   fetchCategories(): void {
     this.productService.getCategories().subscribe((data) => {
       this.categories = data;
@@ -73,10 +91,17 @@ export class ProductListComponent implements OnInit {
     });
   }
 
+  /**
+   * Shows the product overlay.
+   * @param product The selected product.
+   */
   showOverlay(product: Product) {
     this.selectedProduct = product;
   }
 
+  /**
+   * Hides the product overlay.
+   */
   hideOverlay() {
     this.selectedProduct = undefined;
   }
