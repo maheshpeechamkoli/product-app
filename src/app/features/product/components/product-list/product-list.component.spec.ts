@@ -171,4 +171,42 @@ describe('ProductListComponent', () => {
 
     expect(component.fetchProducts).not.toHaveBeenCalled();
   });
+
+  it('should track product by id', () => {
+    const product = mockProducts[0];
+    const result = component.trackByProductId(0, product);
+    expect(result).toBe(product.id);
+  });
+
+  it('should call fetchCategories on ngOnInit', () => {
+    spyOn(component, 'fetchCategories');
+    component.ngOnInit();
+    expect(component.fetchCategories).toHaveBeenCalled();
+  });
+
+  it('should handle fetched products and update product list', () => {
+    component.handleFetchedProducts(mockProductResponse);
+
+    expect(component.totalProducts).toBe(mockProductResponse.total);
+    expect(component.products).toEqual(mockProductResponse.products);
+    expect(component.isLastPage).toBeTrue();
+  });
+
+  it('should append fetched products to existing product list if no category is selected', () => {
+    component.products = [mockProducts[0]];
+    component.selectedCategory = '';
+
+    const newProductResponse: ProductResponse<Product> = {
+      products: [mockProducts[1]],
+      total: 2,
+      skip: 0,
+      limit: 20,
+    };
+
+    component.handleFetchedProducts(newProductResponse);
+
+    expect(component.totalProducts).toBe(newProductResponse.total);
+    expect(component.products).toEqual([mockProducts[0], mockProducts[1]]);
+    expect(component.isLastPage).toBeTrue();
+  });
 });

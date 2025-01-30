@@ -8,6 +8,4 @@ import { NavBarComponent } from './shared/components/nav-bar/nav-bar.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
-  title = 'product-management-app';
-}
+export class AppComponent {}

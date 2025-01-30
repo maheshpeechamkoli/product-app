@@ -1,59 +1,136 @@
-# ProductManagementApp
+# PRODUCT APP (Version 1.0.0)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.4.
+A Product viewer Application, Using Angukar 19 Standalomne. Typescript . Jasmine . Karma . Eslint
 
-## Development server
+The Product App is built using Angular 19 and follows a scalable, maintainable architecture with optimized performance and reusable components.
 
-To start a local development server, run:
+## Table of Contents
 
-```bash
+- [Getting Started](#getting-started)
+  - [Installation](#installation)
+  - [Running the Application](#running-the-application)
+- [Folder Structure](#folder-structure)
+- [Development Features](#development-features)
+  - [Unit Test](#unit-test)
+  - [Code Coverage](#code-coverage)
+  - [Lint & Format](#lint-format)
+  - [UI UX](#ui-ux)
+
+## Getting Started
+
+#### Key Architecture Decisions and Best Practices
+
+    1. Standalone Components:
+        Adopted Angular's standalone component architecture for better encapsulation and lazy loading.
+    2. OnPush Change Detection:
+        Improved rendering performance by using ChangeDetectionStrategy.OnPush to minimize DOM updates.
+    3. Reusable Pipes and Directives
+        Improved rendering performance by using ChangeDetectionStrategy.OnPush to minimize DOM updates.
+    4. Reusable Components
+        Built reusable components like ProductCard and ProductThumbnail for consistent and maintainable UI.
+    5. Unit Testing
+        Achieved high code coverage with Jasmine and Karma unit tests.
+    6. Code Quality and Formatting
+        Ensured code quality with ESLint and formatting consistency with Prettier
+
+#### Benefits
+
+    1.Performance
+        OnPush strategy and optimized infinite scroll reduce unnecessary change detection and API calls.
+        Debounce feature minimizes user interface latency.
+    2.Scalability
+        Modular architecture allows for easy extension with new features.
+        Reusable components, directives, and pipes promote maintainability.
+    3.Maintainability
+        Standalone components simplify project configuration.
+        Global SCSS variables ensure consistent styling across the application.
+    4.Code Quality
+        ESLint and Prettier maintain clean, readable code.
+        Unit testing ensures robustness and early bug detection.
+
+### Installation
+
+#### Clone the repository:
+
+Open your terminal or command prompt, go to the desired directory, and use the following command to clone the angular project:
+
+```
+git clone https://github.com/maheshpeechamkoli/product-app.git
+cd product-app
+```
+
+#### Running the Application
+
+Downlaod Node and Install
+
+```
+https://nodejs.org/en
+```
+
+```
+npm install
+```
+
+```
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Folder Structure
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+```
+    product-app/src/app/
+    ├── core/                  # Global application-level services and interceptors
+    ├── features/product/      # Product-related components, models, and services
+    │   ├── components/        # UI components (e.g., product list, card, filter)
+    │   ├── models/            # Data models and interfaces
+    │   ├── services/          # http api service
+    │   └── product.routes.ts  # Feature routing configuration
+    ├── shared/                # Shared reusable components, pipes, and directives
+    │   ├── components/        # Reusable UI components like navbar
+    │   ├── directives/        # Custom directives for reusable behaviors
+    │   ├── pipes/             # Custom pipes for data transformation
+    │   └── services/          # Shared application services
+    └── styles/                # Global SCSS styles and variables
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Development Features
 
-```bash
-ng generate --help
-```
+### Unit Test
 
-## Building
+    ```
+    ng test
+    ```
 
-To build the project run:
+![Unit Test](screenshot/test.png)
 
-```bash
-ng build
-```
+### Code Coverage
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+    ```
+    ng test --code-coverage
+    ```
 
-## Running unit tests
+    Run the coverage report and identify which parts of your code are not covered. Use  the following command to generate the coverage report:
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+    ```
+    ng test --no-watch --code-coverage
+    ```
 
-```bash
-ng test
-```
+![Code Coverage](screenshot/code-coverage.png)
 
-## Running end-to-end tests
+### Lint & Format
 
-For end-to-end (e2e) testing, run:
+    "validate": "npm run lint && npm run format:check"
 
-```bash
-ng e2e
-```
+    ```
+    npm run validate
+    ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+### Product List
 
-## Additional Resources
+![UI UX](screenshot/product-list.png)
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### Prodcut Card
+
+![UI UX](screenshot/prodcut-card.png)
+
+### THANK YOU SO MUCH

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "product-management-app": {
+    "product-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/product-management-app",
+            "outputPath": "dist/product-app",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": ["zone.js"],
@@ -64,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "product-management-app:build:production"
+              "buildTarget": "product-app:build:production"
             },
             "development": {
-              "buildTarget": "product-management-app:build:development"
+              "buildTarget": "product-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -81,6 +81,7 @@
             "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
+            "codeCoverageExclude": ["src/environments/*", "src/**/*.spec.ts"],
             "assets": [
               "src/assets",
               {
