@@ -96,4 +96,16 @@ describe('ProductCardComponent', () => {
     purchaseMore.click();
     expect(component.closeOverlay.emit).toHaveBeenCalled();
   });
+
+  it('should initialize selectedImage to the first image in the product images array', () => {
+    expect(component.selectedImage).toBe(mockProduct.images[0]);
+  });
+
+  it('should update selectedImage when a thumbnail is clicked', () => {
+    const thumbnail = fixture.nativeElement.querySelectorAll('.thumbnail')[1];
+    const newImage = mockProduct.images[1];
+
+    thumbnail.click();
+    expect(component.selectedImage).toBe(newImage);
+  });
 });

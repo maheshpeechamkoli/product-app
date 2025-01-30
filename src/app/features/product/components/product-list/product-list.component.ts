@@ -133,7 +133,7 @@ export class ProductListComponent implements OnInit {
    * Handles the fetched products and updates the product list.
    * @param data The fetched product data.
    */
-  private handleFetchedProducts(data: ProductResponse<Product>): void {
+  handleFetchedProducts(data: ProductResponse<Product>): void {
     this.totalProducts = data.total;
     this.products = this.selectedCategory
       ? data.products
