@@ -108,6 +108,7 @@ ng serve
     ```
     ng test --code-coverage
     ```
+
     Run the coverage report and identify which parts of your code are not covered. Use  the following command to generate the coverage report:
 
     ```
