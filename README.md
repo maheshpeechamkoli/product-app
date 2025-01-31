@@ -20,23 +20,20 @@ The Product App is built using Angular 19 and follows a scalable, maintainable a
 
 ### Installation
 
-#### Clone the repository:
-
-Open your terminal or command prompt, go to the desired directory, and use the following command to clone the angular project:
-
 Install the Angular 
-Step 1
 ```
 npm install -g @angular/cli
 ```
-Step 2
-Download Node and Install
+
+Download & Install Node 
 
 ```
 https://nodejs.org/en
 ```
+#### Clone the repository:
 
-Step 4
+Open your terminal or command prompt, go to the desired directory, and use the following command to clone the angular project:
+
 ```
 git clone https://github.com/maheshpeechamkoli/product-app.git
 cd product-app
