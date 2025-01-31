@@ -24,15 +24,22 @@ The Product App is built using Angular 19 and follows a scalable, maintainable a
 
 Open your terminal or command prompt, go to the desired directory, and use the following command to clone the angular project:
 
+Install the Angular 
+Step 1
 ```
-git clone https://github.com/maheshpeechamkoli/product-app.git
-cd product-app
+npm install -g @angular/cli
 ```
-
+Step 2
 Downlaod Node and Install
 
 ```
 https://nodejs.org/en
+```
+
+Step 4
+```
+git clone https://github.com/maheshpeechamkoli/product-app.git
+cd product-app
 ```
 
 #### Running the Application
@@ -65,13 +72,23 @@ ng serve
 
 ## Development Features
 
-1.  Standalone Components:
-    Adopted Angular's standalone component architecture for better encapsulation and lazy loading. 2. OnPush Change Detection:
-    Improved rendering performance by using ChangeDetectionStrategy.OnPush to minimize DOM updates. 3. Reusable Pipes and Directives
-    Improved rendering performance by using ChangeDetectionStrategy.OnPush to minimize DOM updates. 4. Reusable Components
-    Built reusable components like ProductCard and ProductThumbnail for consistent and maintainable UI. 5. Unit Testing
-    Achieved high code coverage with Jasmine and Karma unit tests. 6. Code Quality and Formatting
-    Ensured code quality with ESLint and formatting consistency with Prettier
+    1.  Standalone Components:
+        Adopted Angular's standalone component architecture for better encapsulation and lazy loading.
+        
+    3. OnPush Change Detection:
+        Improved rendering performance by using ChangeDetectionStrategy.OnPush to minimize DOM updates.
+       
+    5. Reusable Pipes and Directives
+        Improved rendering performance by using ChangeDetectionStrategy.OnPush to minimize DOM updates.
+       
+    7. Reusable Components
+        Built reusable components like ProductCard and ProductThumbnail for consistent and maintainable UI.
+       
+    9. Unit Testing
+        Achieved high code coverage with Jasmine and Karma unit tests.
+       
+    11. Code Quality and Formatting
+        Ensured code quality with ESLint and formatting consistency with Prettier
 
 #### Benefits
 
