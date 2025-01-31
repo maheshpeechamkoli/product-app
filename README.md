@@ -13,40 +13,10 @@ The Product App is built using Angular 19 and follows a scalable, maintainable a
 - [Development Features](#development-features)
   - [Unit Test](#unit-test)
   - [Code Coverage](#code-coverage)
-  - [Lint & Format](#lint-format)
+  - [Lint and Format](#lint-format)
   - [UI UX](#ui-ux)
 
 ## Getting Started
-
-#### Key Architecture Decisions and Best Practices
-
-    1. Standalone Components:
-        Adopted Angular's standalone component architecture for better encapsulation and lazy loading.
-    2. OnPush Change Detection:
-        Improved rendering performance by using ChangeDetectionStrategy.OnPush to minimize DOM updates.
-    3. Reusable Pipes and Directives
-        Improved rendering performance by using ChangeDetectionStrategy.OnPush to minimize DOM updates.
-    4. Reusable Components
-        Built reusable components like ProductCard and ProductThumbnail for consistent and maintainable UI.
-    5. Unit Testing
-        Achieved high code coverage with Jasmine and Karma unit tests.
-    6. Code Quality and Formatting
-        Ensured code quality with ESLint and formatting consistency with Prettier
-
-#### Benefits
-
-    1.Performance
-        OnPush strategy and optimized infinite scroll reduce unnecessary change detection and API calls.
-        Debounce feature minimizes user interface latency.
-    2.Scalability
-        Modular architecture allows for easy extension with new features.
-        Reusable components, directives, and pipes promote maintainability.
-    3.Maintainability
-        Standalone components simplify project configuration.
-        Global SCSS variables ensure consistent styling across the application.
-    4.Code Quality
-        ESLint and Prettier maintain clean, readable code.
-        Unit testing ensures robustness and early bug detection.
 
 ### Installation
 
@@ -59,13 +29,13 @@ git clone https://github.com/maheshpeechamkoli/product-app.git
 cd product-app
 ```
 
-#### Running the Application
-
 Downlaod Node and Install
 
 ```
 https://nodejs.org/en
 ```
+
+#### Running the Application
 
 ```
 npm install
@@ -95,6 +65,29 @@ ng serve
 
 ## Development Features
 
+1.  Standalone Components:
+    Adopted Angular's standalone component architecture for better encapsulation and lazy loading. 2. OnPush Change Detection:
+    Improved rendering performance by using ChangeDetectionStrategy.OnPush to minimize DOM updates. 3. Reusable Pipes and Directives
+    Improved rendering performance by using ChangeDetectionStrategy.OnPush to minimize DOM updates. 4. Reusable Components
+    Built reusable components like ProductCard and ProductThumbnail for consistent and maintainable UI. 5. Unit Testing
+    Achieved high code coverage with Jasmine and Karma unit tests. 6. Code Quality and Formatting
+    Ensured code quality with ESLint and formatting consistency with Prettier
+
+#### Benefits
+
+    1.Performance
+        OnPush strategy and optimized infinite scroll reduce unnecessary change detection and API calls.
+        Debounce feature minimizes user interface latency.
+    2.Scalability
+        Modular architecture allows for easy extension with new features.
+        Reusable components, directives, and pipes promote maintainability.
+    3.Maintainability
+        Standalone components simplify project configuration.
+        Global SCSS variables ensure consistent styling across the application.
+    4.Code Quality
+        ESLint and Prettier maintain clean, readable code.
+        Unit testing ensures robustness and early bug detection.
+
 ### Unit Test
 
     ```
@@ -117,13 +110,15 @@ ng serve
 
 ![Code Coverage](screenshot/code-coverage.png)
 
-### Lint & Format
+### Lint and Format
 
     "validate": "npm run lint && npm run format:check"
 
     ```
     npm run validate
     ```
+
+## UI UX
 
 ### Product List
 
