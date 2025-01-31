@@ -1,6 +1,6 @@
 # PRODUCT APP (Version 1.0.0)
 
-A Product viewer Application, Using Angukar 19 Standalomne. Typescript . Jasmine . Karma . Eslint
+A Product viewer Application, Using Angukar 19 . Standalone components . Typescript . Jasmine . Karma . Eslint
 
 The Product App is built using Angular 19 and follows a scalable, maintainable architecture with optimized performance and reusable components.
 
