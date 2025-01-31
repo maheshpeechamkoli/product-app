@@ -1,6 +1,6 @@
 # PRODUCT APP (Version 1.0.0)
 
-A Product viewer Application, Using Angukar 19 . Standalone components . Typescript . Jasmine . Karma . Eslint
+A Product viewer Application, Using Angular 19 . Standalone components . Typescript . Jasmine . Karma . Eslint
 
 The Product App is built using Angular 19 and follows a scalable, maintainable architecture with optimized performance and reusable components.
 
@@ -24,7 +24,8 @@ Install the Angular
 ```
 npm install -g @angular/cli
 ```
-Downlaod & Install Node 
+
+Download & Install Node 
 
 ```
 https://nodejs.org/en
@@ -137,7 +138,7 @@ ng serve
 
 ![UI UX](screenshot/product-list.png)
 
-### Prodcut Card
+### Product Card
 
 ![UI UX](screenshot/prodcut-card.png)
 
